@@ -1,0 +1,41 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&family=Inter:wght@100;400;500&family=Rampart+One&display=swap');
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+body {
+  font-family: 'Indie Flower', cursive;
+  background-color: white;
+}
+
+* {
+  box-sizing: border-box;
+  scrollbar-color: #5ca4a9 #5ca4a9;
+  scroll-behavior: smooth;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f0f9f9;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #5ca4a9;
+  transition: 200ms ease-in-out;
+  border-radius: 10px;
+}
+
+input {
+  padding: 10px;
+  border-width: 1px;
+  border-color: #5ca4a9;
+}
