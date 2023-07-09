@@ -9,7 +9,7 @@ interface ListItemLineProps {
 
 export function ListItemLine({ item }: ListItemLineProps) {
   // state pour prévenir le lag de l'idb
-  const [check, setCheck] = useState(false)
+  const [check, setCheck] = useState(item.checked)
   const handleStrike = () => {
     setCheck(!check)
     idb.itemsList.where({ id: item.id }).modify({ checked: !item.checked })
