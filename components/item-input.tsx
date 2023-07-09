@@ -54,16 +54,17 @@ export function ItemInput({ query, setQuery }: ItemInputProps) {
   const setSelected = async (selectStr: string) => {
     const isExist = await idb.items.get({ name: selectStr })
     if (isExist) {
-      console.log('existe', selectStr)
       _setSelected(selectStr)
       setQuery(selectStr)
       return
     }
 
+    const cleanStr = selectStr.replace(/"/g, '').replace('Créer ', '').trim()
+
     // correction orthographique
     const correctedNameRes = await fetch('/api/ai/corrector', {
       method: 'POST',
-      body: JSON.stringify({ name: selectStr }),
+      body: JSON.stringify({ name: cleanStr }),
     })
 
     const corrected = await correctedNameRes.text()
