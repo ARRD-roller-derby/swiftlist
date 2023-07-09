@@ -1,19 +1,21 @@
 import { IItemList } from '@/entities/item-list'
 import { idb } from '@/lib/idb'
 import { DelItemButton } from './del-item-button'
+import { useState } from 'react'
 
 interface ListItemLineProps {
   item: IItemList
 }
 
 export function ListItemLine({ item }: ListItemLineProps) {
-  const handleStrike = async () => {
-    await idb.itemsList
-      .where({ id: item.id })
-      .modify({ checked: !item.checked })
+  // state pour prévenir le lag de l'idb
+  const [check, setCheck] = useState(false)
+  const handleStrike = () => {
+    setCheck(!check)
+    idb.itemsList.where({ id: item.id }).modify({ checked: !item.checked })
   }
 
-  const checked = item.checked ? 'line-through text-gray-500' : ''
+  const checked = check ? 'line-through text-gray-500' : ''
 
   return (
     <div

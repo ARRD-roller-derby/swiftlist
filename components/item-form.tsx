@@ -34,13 +34,9 @@ export function ItemForm() {
       })
 
       if (findItem) {
-        // si se sont des grammes ou des litres, on additionne, sinon on double
-        const quantity = findItem.unit.match(/gramme|litre/)
-          ? findItem.quantity + item.quantity
-          : findItem.quantity * 2
-
         await idb.itemsList.where({ name: findItem.name }).modify({
-          quantity,
+          quantity: item.quantity,
+          unit: item.unit,
         })
       } else {
         await idb.itemsList.add({

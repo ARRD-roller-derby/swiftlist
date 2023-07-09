@@ -52,14 +52,13 @@ export function ItemInput({ query, setQuery }: ItemInputProps) {
   if (!sections || !items) return <div>Chargement...</div>
 
   const setSelected = async (selectStr: string) => {
-    const isExist = await idb.items.get({ name: selectStr })
+    const cleanStr = selectStr.replace(/"/g, '').replace('Créer ', '').trim()
+    const isExist = await idb.items.get({ name: cleanStr })
     if (isExist) {
-      _setSelected(selectStr)
-      setQuery(selectStr)
+      _setSelected(cleanStr)
+      setQuery(cleanStr)
       return
     }
-
-    const cleanStr = selectStr.replace(/"/g, '').replace('Créer ', '').trim()
 
     // correction orthographique
     const correctedNameRes = await fetch('/api/ai/corrector', {
@@ -68,9 +67,9 @@ export function ItemInput({ query, setQuery }: ItemInputProps) {
     })
 
     const corrected = await correctedNameRes.text()
-    const extractWord = corrected.replace(`"${selectStr}"`, '').match(/"(.*?)"/)
+    const extractWord = corrected.replace(`"${cleanStr}"`, '').match(/"(.*?)"/)
     const correctedWord =
-      extractWord && extractWord.length > 0 ? extractWord[1] : selectStr
+      extractWord && extractWord.length > 0 ? extractWord[1] : cleanStr
     const cleanWord = correctedWord.replace(/corrigé/g, '').toLocaleLowerCase()
     _setSelected(cleanWord)
     setQuery(cleanWord)
