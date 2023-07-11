@@ -1,25 +1,27 @@
-import { DelListButton } from '@/components/del-list-button'
-import { ItemForm } from '@/components/item-form'
-import { Layout } from '@/components/layout'
-import { ListItemLine } from '@/components/list-item-line'
-import { Sections } from '@/components/sections'
+import { ItemForm, Sections, Loader } from '@/components'
 import { useSyncDb } from '@/hooks/sync-db'
-import { idb } from '@/lib/idb'
-import { useLiveQuery } from 'dexie-react-hooks'
 
 export function IndexPage() {
   const { loading } = useSyncDb()
 
+  if (loading)
+    return (
+      <div className="flex items-center justify-center h-screen">
+        <Loader />
+      </div>
+    )
   return (
-    <Layout>
-      <div className="sticky top-0 py-1 mb-1 bg-gray-100 border-b-2 border-teal">
-        <ItemForm />
+    <div className="bg-happy-bg flex justify-center  h-screen">
+      <div className="w-full max-w-md h-screen grid grid-rows-[1fr_auto] p-2">
+        <div className="relative h-full">
+          <div className="absolute top-0 bottom-0 left-0 right-0 overflow-y-auto p-1">
+            <Sections />
+          </div>
+        </div>
+        <div className="">
+          <ItemForm />
+        </div>
       </div>
-      {loading && <div className="">Chargement...</div>}
-      <Sections />
-      <div className="my-5 flex justify-end">
-        <DelListButton />
-      </div>
-    </Layout>
+    </div>
   )
 }

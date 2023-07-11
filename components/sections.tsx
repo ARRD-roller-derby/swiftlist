@@ -1,10 +1,9 @@
 import { idb } from '@/lib/idb'
 import { useLiveQuery } from 'dexie-react-hooks'
-import { ListItemLine } from './list-item-line'
+import { ListItemLine, SectionPercent } from '@/components'
 import { Disclosure } from '@headlessui/react'
 import { ChevronUpIcon } from '@heroicons/react/20/solid'
 import { useMemo } from 'react'
-import { SectionPercent } from './section-percent'
 
 export function Sections() {
   const items = useLiveQuery(async () => await idb.itemsList.toArray())
@@ -34,8 +33,8 @@ export function Sections() {
           {({ open }) => (
             <>
               <Disclosure.Button
-                className="flex w-full justify-between py-2 mt-5 text-left text-sm font-medium hover:bg-teal
-              hover:text-white focus:outline-none border-teal border-dotted border-b"
+                className="flex w-full justify-between py-2 mt-5 text-left text-sm font-medium hover:bg-happy-secondary
+              hover:text-white focus:outline-none"
               >
                 <span>
                   {section.icon} {section.name}
@@ -47,15 +46,15 @@ export function Sections() {
                   } h-5 w-5 text-teal-950`}
                 />
               </Disclosure.Button>
-              <Disclosure.Panel className="px-4 pt-4 pb-2 text-sm bg-gray-200 m-0">
+              <Disclosure.Panel className="px-4 pt-4 pb-2 text-sm bg-happy m-0">
                 {availableSubSections
                   ?.filter((subSection) => subSection.parentId === section.id)
                   .map((subSection) => (
                     <div
                       key={subSection.id}
-                      className="flex flex-col gap-1 pl-2 text-gray-500 italic"
+                      className="flex flex-col gap-1 pl-2 text-happy-buttonText-500"
                     >
-                      <div className="flex-1">{subSection.name}</div>
+                      <div className="flex-1 italic">{subSection.name}</div>
                       <div className="flex flex-col gap-2">
                         {items
                           ?.filter((item) => item.sectionId === subSection.id)

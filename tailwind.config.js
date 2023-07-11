@@ -8,6 +8,15 @@ module.exports = {
   theme: {
     extend: {
       colors: {
+        happy: {
+          bg: '#fef6e4',
+          button: '#f582ae',
+          buttonText: '#001858',
+          stroke: '#001858',
+          text: '#172c66',
+          secondary: '#8bd3dd',
+          DEFAULT: '#f3d2c1',
+        },
         teal: {
           lightest: '#f0f9f9',
           light: '#a6e3e3',

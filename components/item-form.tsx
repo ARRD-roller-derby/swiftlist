@@ -1,10 +1,11 @@
-import { units } from '@/data/units'
+import { units } from '@/data'
 import { ItemInput } from './item-input'
 import { UnitSelector } from './unit-selector'
 import { useState } from 'react'
 import { useLiveQuery } from 'dexie-react-hooks'
 import { idb } from '@/lib/idb'
 import { Item } from '@prisma/client'
+import { DelListButton } from './del-list-button'
 
 const itemInitialState = {
   quantity: 1,
@@ -110,7 +111,7 @@ export function ItemForm() {
   return (
     <form className="flex flex-col gap-1 mb-4" onSubmit={handleSubmit}>
       <div className="grid grid-cols-[1fr_2fr] gap-1">
-        <div className="cursor-default overflow-hidden border-teal border  text-left focus:outline-none p-0  sm:text-sm">
+        <div className="cursor-default overflow-hidden border-happy-stroke border-2 rounded-md mt-2 text-left focus:outline-none p-0  sm:text-sm">
           <input
             type="number"
             value={item.quantity}
@@ -132,8 +133,12 @@ export function ItemForm() {
         query={item.name}
         setQuery={(name) => setItem((prev) => ({ ...prev, name }))}
       />
-      <div className="flex justify-end">
-        <button type="submit" className="bg-teal-dark text-white p-1 uppercase">
+      <div className="flex justify-between gap-1 mt-3">
+        <DelListButton />
+        <button
+          type="submit"
+          className="bg-happy-button  text-happy-buttonText p-1 uppercase rounded-md"
+        >
           {loading ? '...' : 'Ajouter'}
         </button>
       </div>
