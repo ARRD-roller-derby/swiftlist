@@ -1,7 +1,7 @@
 import Dexie, { Table } from 'dexie'
-import { APP_NAME } from './constants'
+import { APP_NAME } from '@/lib/constants'
 import { Item, Section } from '@prisma/client'
-import { IItemList } from '@/entities/item-list'
+import { IItemList } from '@/entities'
 
 export class IDB extends Dexie {
   // We just tell the typing system this is the case

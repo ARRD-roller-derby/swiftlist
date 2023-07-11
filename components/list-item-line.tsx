@@ -1,12 +1,10 @@
-import { IItemList } from '@/entities/item-list'
+import { IItemList } from '@/entities'
 import { idb } from '@/lib/idb'
-import { DelItemButton } from './del-item-button'
+import { DelItemButton } from '@/components'
 import { useState } from 'react'
-
 interface ListItemLineProps {
   item: IItemList
 }
-
 export function ListItemLine({ item }: ListItemLineProps) {
   // state pour prévenir le lag de l'idb
   const [check, setCheck] = useState(item.checked)
@@ -19,7 +17,7 @@ export function ListItemLine({ item }: ListItemLineProps) {
 
   return (
     <div
-      className={`flex items-center gap-2 pl-1 pr-1 text-blue-900 cursor-pointer border-b-2 border-b-transparent hover:border-b-teal  hover:border-dotted`}
+      className={`flex items-center gap-2 pl-1 pr-1 text-blue-900 cursor-pointer border-b-2 border-b-transparent hover:border-b-teal  hover:border-dotted normal-case`}
       onClick={handleStrike}
     >
       <div className={`flex-1 pl-1 text-lg ${checked}`}>

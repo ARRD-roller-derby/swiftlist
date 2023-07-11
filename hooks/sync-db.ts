@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { idb } from '../lib/idb'
+import { idb } from '@/lib/idb'
 import { Section } from '@prisma/client'
 
 /**

@@ -24,8 +24,8 @@ model Section {
 }
 
 model Item {
-  id        Int     @id @default(autoincrement())
-  name      String  @unique
-  sectionId Int
-  section   Section @relation(fields: [sectionId], references: [id])
+  id        Int      @id @default(autoincrement())
+  name      String   @unique
+  sectionId Int?
+  section   Section? @relation(fields: [sectionId], references: [id])
 }
