@@ -59,7 +59,10 @@ export function Sections() {
                         {items
                           ?.filter((item) => item.sectionId === subSection.id)
                           .map((item) => (
-                            <ListItemLine key={item.id} item={item} />
+                            <ListItemLine
+                              key={`${item.id}-${item.sectionId}`}
+                              item={item}
+                            />
                           ))}
                       </div>
                     </div>

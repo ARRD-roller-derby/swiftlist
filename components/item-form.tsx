@@ -62,23 +62,10 @@ export function ItemForm() {
 
     if (!flatSections) return abortAdd()
 
-    const res = await fetch('/api/ai/search_item', {
-      method: 'POST',
-      body: JSON.stringify({ name: item.name, sections: flatSections }),
-    })
-
-    const data = await res.text()
-    const findSection = subSections?.find((section) =>
-      data.includes(section.name)
-    )
-
-    if (!findSection) return abortAdd()
-
     const createdItem = await fetch('/api/items', {
       method: 'POST',
       body: JSON.stringify({
         name: item.name,
-        sectionId: findSection.id,
       }),
     })
 

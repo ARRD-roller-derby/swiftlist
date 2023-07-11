@@ -1,4 +1,5 @@
 import { ItemForm, Sections, Loader } from '@/components'
+import { ItemsWithoutFunction } from '@/components/items-without-section'
 import { useSyncDb } from '@/hooks/sync-db'
 
 export function IndexPage() {
@@ -16,6 +17,7 @@ export function IndexPage() {
         <div className="relative h-full">
           <div className="absolute top-0 bottom-0 left-0 right-0 overflow-y-auto p-1">
             <Sections />
+            <ItemsWithoutFunction />
           </div>
         </div>
         <div className="">

@@ -5,9 +5,9 @@ export default async function createItem(
   request: NextApiRequest,
   response: NextApiResponse
 ) {
-  const { name, sectionId } = JSON.parse(request.body || '{}')
+  const { name } = JSON.parse(request.body || '{}')
 
-  if (!name || !sectionId) {
+  if (!name) {
     return response.status(400).json({ error: 'Missing name' })
   }
 
@@ -15,8 +15,7 @@ export default async function createItem(
     where: { name },
     update: {},
     create: {
-      name,
-      sectionId,
+      name
     },
   })
 

@@ -8,9 +8,9 @@ const config = new Configuration({
 const openai = new OpenAIApi(config)
 
 export default async function handler(req: Request) {
-  const { name, sections } = await req.json()
-  const content = `dans quel rayon de supermarché, parmi cette liste :\n${sections} \n je trouve ${name} ? (retourne uniquement le nom du rayon)`
-
+  const { names, sections } = await req.json()
+  if (!names || !sections) return new Error('Missing names or sections')
+  const content = `renvoi moi cette liste:\n${names}\n\navec en face le rayon de supermarché correspondant parmi cette liste:\n\n${sections}`
   const response = await openai.createChatCompletion({
     model: 'gpt-3.5-turbo',
     stream: true,
