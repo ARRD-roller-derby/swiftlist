@@ -79,9 +79,7 @@ export function ItemsWithoutFunction() {
         hover:text-white focus:outline-none"
           >
             <span>
-              {loading
-                ? "🧠 L'IA recherche les catégories..."
-                : '🤔 À déterminer'}
+              {loading ? "🧠 L'IA recherche les rayons..." : '🤔 À déterminer'}
             </span>
             <ChevronUpIcon
               className={`${
