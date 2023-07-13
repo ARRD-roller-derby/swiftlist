@@ -17,6 +17,7 @@ export function ItemInput({ query, setQuery }: ItemInputProps) {
 
   // STATE ____________________________________________________________________
   const [selected, _setSelected] = useState('')
+  const [loading, setLoading] = useState(false)
 
   // MEMO _____________________________________________________________________
   const placeholder = useMemo(() => {
@@ -63,7 +64,7 @@ export function ItemInput({ query, setQuery }: ItemInputProps) {
       setQuery(cleanStr)
       return
     }
-
+    setLoading(true)
     // correction orthographique
     const correctedNameRes = await fetch('/api/ai/corrector', {
       method: 'POST',
@@ -77,6 +78,7 @@ export function ItemInput({ query, setQuery }: ItemInputProps) {
     const cleanWord = correctedWord.replace(/corrigé/g, '').toLocaleLowerCase()
     _setSelected(cleanWord)
     setQuery(cleanWord)
+    setLoading(false)
   }
 
   return (
@@ -104,10 +106,11 @@ export function ItemInput({ query, setQuery }: ItemInputProps) {
         </div>
       </Transition>
       <input
-        className="rounded-md w-full border-happy-stroke border-2 pl-2 mt-2 outline-non bg-happy-bg"
-        value={query}
+        className="rounded-sm w-full border-happy-stroke border pl-2 mt-2 outline-non bg-happy-bg disabled:opacity-50 disabled:cursor-not-allowed"
+        value={loading ? `🔎 L'IA traque les fautes d'orthographe..` : query}
         onChange={(e) => setQuery(e.target.value)}
         placeholder={placeholder}
+        disabled={loading}
       />
     </div>
   )

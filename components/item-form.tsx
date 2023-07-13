@@ -27,7 +27,11 @@ export function ItemForm() {
     e.preventDefault()
     if (!item.name || loading) return
 
-    const searchItem = await idb.items.get({ name: item.name })
+    //delete item immediately to reduce lag
+    const itemToSend = { ...item }
+    setItem(itemInitialState)
+
+    const searchItem = await idb.items.get({ name: itemToSend.name })
 
     if (searchItem) {
       const findItem = await idb.itemsList.get({
@@ -36,13 +40,13 @@ export function ItemForm() {
 
       if (findItem) {
         await idb.itemsList.where({ name: findItem.name }).modify({
-          quantity: item.quantity,
-          unit: item.unit,
+          quantity: itemToSend.quantity,
+          unit: itemToSend.unit,
         })
       } else {
         await idb.itemsList.add({
-          unit: item.unit,
-          quantity: item.quantity,
+          unit: itemToSend.unit,
+          quantity: itemToSend.quantity,
           checked: false,
           ...searchItem,
         })
@@ -91,14 +95,13 @@ export function ItemForm() {
       ...localItem,
     })
 
-    setItem(itemInitialState)
     setLoading(false)
   }
 
   return (
     <form className="flex flex-col gap-1 mb-4" onSubmit={handleSubmit}>
       <div className="grid grid-cols-[1fr_2fr] gap-1">
-        <div className="cursor-default overflow-hidden border-happy-stroke border-2 rounded-md mt-2 text-left focus:outline-none p-0  sm:text-sm">
+        <div className="cursor-default overflow-hidden border-happy-stroke border rounded-sm mt-2 text-left focus:outline-none p-0  sm:text-sm">
           <input
             type="number"
             value={item.quantity}

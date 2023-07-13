@@ -18,7 +18,7 @@ export function UnitSelector({ onChange, quantity }: UnitSelectorProps) {
   return (
     <Listbox value={selected} onChange={handleSelect}>
       <div className="relative ">
-        <Listbox.Button className="relative w-full mt-2 cursor-default border-happy-stroke border-2 rounded-md py-2 pl-3 pr-10 text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-opacity-75 focus-visible:ring-offset-2 sm:text-sm">
+        <Listbox.Button className="relative w-full mt-2 cursor-default border-happy-stroke border rounded-sm py-2 pl-3 pr-10 text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-opacity-75 focus-visible:ring-offset-2 sm:text-sm">
           <span className="block truncate">
             {selected}
             {quantity > 1 ? 's' : ''}

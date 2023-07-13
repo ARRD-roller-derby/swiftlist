@@ -5,30 +5,53 @@ import { useEffect, useMemo, useState } from 'react'
 import { ListItemLine } from './list-item-line'
 import { Disclosure } from '@headlessui/react'
 import { ChevronUpIcon } from '@heroicons/react/20/solid'
+import { Item } from '@prisma/client'
 
 export function ItemsWithoutFunction() {
   const [loading, setLoading] = useState(false)
   const items = useLiveQuery(async () => await idb.itemsList.toArray())
-  const subSections = useLiveQuery(async () => await idb.sections.toArray())
+  const sections = useLiveQuery(async () => await idb.sections.toArray())
   const orphanItems = useMemo(() => {
     if (!items) return []
     return items?.filter((item) => !item.sectionId)
   }, [items])
 
   const searchSection = async () => {
-    if (loading || !subSections) return
-    const flatSections = subSections
-      ?.filter((section) => !!section.parentId)
-      .map((section) => section.name)
-      .join('\n')
+    if (loading || !sections) return
 
-    if (flatSections?.length === 0 || !subSections || orphanItems.length === 0)
-      return
+    const flatSections = sections.reduce((acc, section) => {
+      if (section.parentId) {
+        const parent = sections.find((s) => s.id === section.parentId)
+        if (!parent) return acc
+        return (acc += `${parent.name}: ${section.name}\n`)
+      }
+      return acc
+    }, '')
+
+    if (flatSections?.length === 0 || orphanItems.length === 0) return
     setLoading(true)
-    const res = await fetch('/api/ai/search_item', {
+
+    const createdItemsRes = await fetch('/api/items/createItems', {
       method: 'POST',
       body: JSON.stringify({
         names: orphanItems.map((item) => item.name),
+      }),
+    })
+
+    const createdItemsData = await createdItemsRes.json()
+    const createdItems: Item[] = createdItemsData?.items || []
+    const itemsWithSection = createdItems.filter((item) => !!item.sectionId)
+    const itemsWithoutSection = createdItems.filter((item) => !item.sectionId)
+    for (const createdItem of itemsWithSection) {
+      await idb.items.where({ name: createdItem.name }).modify({
+        sectionId: createdItem.sectionId,
+      })
+    }
+
+    const res = await fetch('/api/ai/search_item', {
+      method: 'POST',
+      body: JSON.stringify({
+        names: itemsWithoutSection.map((item) => item.name),
         sections: flatSections,
       }),
     })
@@ -41,8 +64,8 @@ export function ItemsWithoutFunction() {
       const searchedItem = orphanItems.find((item) =>
         aiRes.includes(item.name.toLowerCase())
       )
-      const section = subSections
-        .filter((section) => !!section.parentId)
+      const section = sections
+        .filter((s) => !!s.parentId)
         .find((section) => aiRes.includes(section.name.toLowerCase()))
 
       if (section && searchedItem) {

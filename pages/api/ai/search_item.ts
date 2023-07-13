@@ -11,6 +11,7 @@ export default async function handler(req: Request) {
   const { names, sections } = await req.json()
   if (!names || !sections) return new Error('Missing names or sections')
   const content = `renvoi moi cette liste:\n${names}\n\navec en face le rayon de supermarché correspondant parmi cette liste:\n\n${sections}`
+
   const response = await openai.createChatCompletion({
     model: 'gpt-3.5-turbo',
     stream: true,

@@ -12,7 +12,7 @@ export class IDB extends Dexie {
 
   constructor() {
     super(APP_NAME)
-    this.version(1).stores({
+    this.version(2).stores({
       sections: '++id, name, icon,parentId, subSections',
       items: '++id, name, section',
       itemsList: '++id, name, quantity,section, unit, checked',

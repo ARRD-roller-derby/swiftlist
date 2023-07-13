@@ -1,13 +1,17 @@
 import { useEffect, useState } from 'react'
 import { idb } from '@/lib/idb'
 import { Section } from '@prisma/client'
-
+import { useSearchParams } from 'next/navigation'
+import { convertBase64ToTxt } from '@/lib/convert-txt-to-base64'
+import { units } from '@/data'
+import { IItemList } from '@/entities'
 /**
  *
  * @description Syncs the local database with the remote database
  */
 export function useSyncDb() {
   const [loading, setLoading] = useState(false)
+  const params = useSearchParams()
 
   const syncDb = async () => {
     setLoading(true)
@@ -49,6 +53,43 @@ export function useSyncDb() {
             )
         )
       )
+
+      // If there is a list in the url, add the items to the local database
+      const existingList = params.get('items')
+
+      if (existingList) {
+        const convertKey = convertBase64ToTxt(existingList)
+        const existingItems = convertKey.split(',').map((id) => {
+          const idSplit = id.split('-')
+
+          const unit =
+            units.find((unit) => unit.startsWith(idSplit[2])) || units[0]
+          return {
+            id: parseInt(idSplit[0]),
+            quantity: parseInt(idSplit[1]),
+            unit,
+          }
+        })
+        await idb.itemsList.clear()
+        const items = await idb.items.toArray()
+
+        const itemToPush = existingItems.reduce((acc: IItemList[], item) => {
+          const existingItem = items.find((i) => i.id === item.id)
+          if (existingItem) {
+            return [
+              ...acc,
+              {
+                ...existingItem,
+                ...item,
+                checked: false,
+              },
+            ]
+          }
+          return acc
+        }, [])
+
+        await idb.itemsList.bulkPut(itemToPush)
+      }
     }
 
     if (dataItems?.items) {

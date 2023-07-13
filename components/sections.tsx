@@ -32,10 +32,7 @@ export function Sections() {
         <Disclosure key={section.id} defaultOpen>
           {({ open }) => (
             <>
-              <Disclosure.Button
-                className="flex w-full justify-between py-2 mt-5 text-left text-sm font-medium hover:bg-happy-secondary
-              hover:text-white focus:outline-none"
-              >
+              <Disclosure.Button className="flex w-full justify-between py-2 mt-5 text-left text-sm font-medium  focus:outline-none">
                 <span>
                   {section.icon} {section.name}
                   {!open && <SectionPercent sectionId={section.id} />}

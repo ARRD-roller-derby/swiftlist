@@ -7,15 +7,18 @@ module.exports = {
   ],
   theme: {
     extend: {
+      maxHeight: {
+        '2Tier': '66vh',
+      },
       colors: {
         happy: {
           bg: '#fef6e4',
-          button: '#f582ae',
-          buttonText: '#001858',
-          stroke: '#001858',
+          button: '#6657c9',
+          buttonText: '#fff',
+          stroke: '#456ea3',
           text: '#172c66',
-          secondary: '#8bd3dd',
-          DEFAULT: '#f3d2c1',
+          secondary: '#a37745',
+          DEFAULT: '#f4ebd8',
         },
         teal: {
           lightest: '#f0f9f9',
