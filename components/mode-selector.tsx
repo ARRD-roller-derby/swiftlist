@@ -5,7 +5,7 @@ import { LegalNotice } from './legal-notice'
 import { ShareLink } from './share-link'
 
 export function ModeSelector() {
-  const tabs = ['➕', '🔄', 'ℹ️', '📜']
+  const tabs = ['➕', '🔄', '🔒', 'ℹ️', '📜']
 
   return (
     <Tab.Group>
@@ -15,6 +15,9 @@ export function ModeSelector() {
         </Tab.Panel>
         <Tab.Panel>
           <ShareLink />
+        </Tab.Panel>
+        <Tab.Panel>
+          <p className="text-sm italic">Barrez les articles dans le panier</p>
         </Tab.Panel>
         <Tab.Panel>
           <Infos />
