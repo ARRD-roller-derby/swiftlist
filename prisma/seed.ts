@@ -4,7 +4,7 @@ async function main() {
   const response = await Promise.all(
     supermarketSections.map(async (section) => {
       const { name, icon, subSections } = section
-      await prisma.section.upsert({
+      return await prisma.section.upsert({
         where: { name },
         update: {},
         create: {

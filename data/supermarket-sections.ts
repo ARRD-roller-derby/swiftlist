@@ -21,9 +21,15 @@ export const supermarketSections: ISupermarketSection[] = [
     subSections: ['Pains', 'Viennoiseries', 'Gâteaux et tartes', 'Pâtisseries'],
   },
   {
-    name: 'Viandes et Poissons',
-    icon: '🥩',
-    subSections: ['Boucherie', 'Volaille', 'Poissonnerie'],
+    name: 'Frais',
+    icon: '🥬',
+    subSections: [
+      'Charcuterie',
+      'Boucherie',
+      'Traiteur',
+      'Poissonnerie',
+      'Produits laitiers',
+    ],
   },
   {
     name: 'Produits Laitiers et Fromagerie',
@@ -58,7 +64,13 @@ export const supermarketSections: ISupermarketSection[] = [
   {
     name: 'Boissons',
     icon: '🥤',
-    subSections: ['Boissons non-alcoolisées', 'Boissons alcoolisées'],
+    subSections: [
+      'Soda',
+      'Jus de fruits',
+      'Eaux',
+      'Boissons non-alcoolisées',
+      'Boissons alcoolisées',
+    ],
   },
   {
     name: 'Produits Surgelés',
@@ -96,7 +108,7 @@ export const supermarketSections: ISupermarketSection[] = [
       'Produits capillaires',
       'Produits d’hygiène féminine',
       'Rasage et épilation',
-      'Médicaments en vente libre',
+      'Parapharmacie',
       'Produits de premiers soins',
       'Vitamines et compléments alimentaires',
     ],
