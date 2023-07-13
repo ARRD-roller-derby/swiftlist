@@ -17,7 +17,9 @@ export function ModeSelector() {
           <ShareLink />
         </Tab.Panel>
         <Tab.Panel>
-          <p className="text-sm italic">Barrez les articles dans le panier</p>
+          <p className="text-sm italic text-center">
+            Barrez les articles dans le panier
+          </p>
         </Tab.Panel>
         <Tab.Panel>
           <Infos />
