@@ -30,7 +30,7 @@ export function ModeSelector() {
           <Tab
             key={tab}
             className={({ selected }) =>
-              ` text-lg uppercase border-t-2 p-0 outline-none bold ${
+              ` text-lg uppercase border-t-2 p-2 outline-none bold ${
                 selected ? ' border-happy-stroke' : 'border-transparent'
               } rounded-md}`
             }
