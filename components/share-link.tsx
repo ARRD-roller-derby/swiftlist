@@ -2,6 +2,7 @@ import { convertTxtToBase64 } from '@/lib/convert-txt-to-base64'
 import { idb } from '@/lib/idb'
 import { useLiveQuery } from 'dexie-react-hooks'
 import { useMemo } from 'react'
+import va from '@vercel/analytics'
 
 export function ShareLink() {
   const items = useLiveQuery(async () => await idb.itemsList.toArray())
@@ -23,6 +24,7 @@ export function ShareLink() {
         en ligne.
       </div>
       <input
+        onClick={() => va.track('share-link')}
         type="text"
         value={link}
         className="w-full rounded-sm border-happy-stroke border pl-2 mt-2 outline-non bg-happy-bg disabled:opacity-50 disabled:cursor-not-allowed"

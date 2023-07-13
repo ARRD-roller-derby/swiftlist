@@ -1,3 +1,4 @@
+import va from '@vercel/analytics'
 export function Infos() {
   return (
     <div>
@@ -19,8 +20,9 @@ export function Infos() {
           "Et si tu aimes cette appli et que tu veux me soutenir, tu peux m'offrir un café sur "
         }
         <a
+          onClick={() => va.track('kofi')}
           href="https://ko-fi.com/kazerlelutin"
-          className="text-teal-500 underline"
+          className="text-happy-button underline font-bold"
         >
           Ko-fi
         </a>
