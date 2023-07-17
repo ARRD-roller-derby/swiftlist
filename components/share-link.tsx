@@ -8,6 +8,8 @@ export function ShareLink() {
   const items = useLiveQuery(async () => await idb.itemsList.toArray())
   const link = useMemo(() => {
     if (!items) return
+
+    if (items.length === 0) return window.location.origin
     const itemsList = items.map(
       (item) => `${item.id}-${item.quantity}-${item.unit.slice(0, 2)}`
     )
