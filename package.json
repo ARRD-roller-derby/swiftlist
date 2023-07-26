@@ -39,7 +39,7 @@
   "devDependencies": {
     "@types/fast-levenshtein": "^0.0.2",
     "@types/ms": "^0.7.31",
-    "prisma": "^4.13.0",
+    "prisma": "^4.16.2",
     "turbo": "^1.9.3"
   }
 }
