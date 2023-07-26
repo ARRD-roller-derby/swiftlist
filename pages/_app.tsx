@@ -17,7 +17,7 @@ export default function App({
         <title>{title}</title>
         <meta property="twitter:title" content={title} />
         <meta property="og:title" content={title} />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href={`${SITE_URL}/favicon.ico`} />
         <meta name="description" content={description} />
         <meta
           property="twitter:description"
@@ -25,6 +25,7 @@ export default function App({
             '🛒 Swift List est une application de gestion de listes de courses intuitive et pratique.'
           }
         />
+        <meta property="og:description" content={description} />
         <meta property="twitter:card" content={description} />
 
         <meta property="twitter:image" content={preview} />
