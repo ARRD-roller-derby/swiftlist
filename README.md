@@ -2,7 +2,7 @@
 
 [![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/V7V46KBQ9)
 
-Swift List est une application de gestion de listes de courses intuitive et pratique. Simplifiez votre expérience de magasinage en créant et en organisant facilement vos listes de courses. L'IA intégrée recherche les rayons correspondants pour chaque produit, ce qui vous permet de trouver rapidement les articles dont vous avez besoin.
+**Swift List** est une application de gestion de listes de courses intuitive et pratique. Simplifiez votre expérience de magasinage en créant et en organisant facilement vos listes de courses. L'IA intégrée recherche les rayons correspondants pour chaque produit, ce qui vous permet de trouver rapidement les articles dont vous avez besoin.
 
 ![Swift List](https://www.swiftlist.ovh/logo.svg)
 
