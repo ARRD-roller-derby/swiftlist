@@ -17,13 +17,16 @@ export function ListItemLine({ item }: ListItemLineProps) {
 
   return (
     <div
-      className={`flex items-center gap-2 pl-1 pr-1 text-blue-900 cursor-pointer border-b-2 border-b-transparent hover:border-b-teal  hover:border-dotted normal-case`}
+      className={`flex items-center gap-2 px-1 cursor-pointer border-b border-dotted border-b-sl-line last:border-transparent hover:border-b-teal  hover:border-dotted normal-case`}
       onClick={handleStrike}
     >
       <div className={`flex-1 pl-1 text-lg ${checked}`}>
-        <span className="text-black">{item.name} </span>
-        <span className="">{item.quantity} </span>
-        <span className="">
+        <span className="first-letter:uppercase">
+          {item.name}
+          {' - '}
+        </span>
+        <span>{item.quantity} </span>
+        <span>
           {item.unit}
           {item.quantity > 1 ? 's' : ''}{' '}
         </span>

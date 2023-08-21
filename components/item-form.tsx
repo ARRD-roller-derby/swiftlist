@@ -99,9 +99,9 @@ export function ItemForm() {
   }
 
   return (
-    <form className="flex flex-col gap-1 mb-4" onSubmit={handleSubmit}>
+    <form className="flex flex-col gap-1 mb-4 px-3" onSubmit={handleSubmit}>
       <div className="grid grid-cols-[1fr_2fr] gap-1">
-        <div className="cursor-default overflow-hidden border-happy-stroke border rounded-sm mt-2 text-left focus:outline-none p-0  sm:text-sm">
+        <div className="cursor-default overflow-hidden border-sl-tile text-sl-text border rounded-sm mt-2 text-left focus:outline-none p-0  sm:text-sm">
           <input
             type="number"
             value={item.quantity}
@@ -127,7 +127,7 @@ export function ItemForm() {
         <DelListButton />
         <button
           type="submit"
-          className="bg-happy-button  text-happy-buttonText p-1 uppercase rounded-md"
+          className="bg-sl-bg text-sl-text border border-sl-tile p-1 uppercase rounded-md"
         >
           {loading ? '...' : 'Ajouter'}
         </button>

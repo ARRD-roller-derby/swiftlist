@@ -1,7 +1,18 @@
-@import url('https://fonts.googleapis.com/css2?family=PT+Sans&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@font-face {
+  font-family: PTSans;
+  src: url('/fonts/PTSans-Regular.ttf') format('truetype');
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: Pangolin;
+  src: url('/fonts/Pangolin-Regular.ttf') format('truetype');
+  font-weight: normal;
+}
 
 :root {
   --foreground-rgb: 0, 0, 0;
@@ -10,13 +21,13 @@
 }
 
 body {
-  font-family: 'PT Sans', sans-serif;
-  background-color: white;
+  font-family: Pangolin, sans-serif;
+  background-color: theme('colors.sl.bg');
 }
 
 * {
   box-sizing: border-box;
-  scrollbar-color: #5ca4a9 #5ca4a9;
+  scrollbar-color: theme('colors.sl.tile') theme('colors.sl.tile');
   scroll-behavior: smooth;
 }
 
@@ -29,7 +40,7 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #5ca4a9;
+  background: theme('colors.sl.tile');
   transition: 200ms ease-in-out;
   border-radius: 10px;
 }
@@ -37,5 +48,5 @@ body {
 input {
   padding: 10px;
   border-width: 1px;
-  border-color: #5ca4a9;
+  border-color: theme('colors.sl.tile');
 }

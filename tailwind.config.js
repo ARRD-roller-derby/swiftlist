@@ -11,6 +11,14 @@ module.exports = {
         '2Tier': '66vh',
       },
       colors: {
+        sl: {
+          bg: '#F2F2F2',
+          margin: '#BF5672',
+          tile: '#6C6AA6',
+          row: '#9593BF',
+          line: '#A8A9BF',
+          text: '#131247',
+        },
         happy: {
           bg: '#fef6e4',
           button: '#6657c9',

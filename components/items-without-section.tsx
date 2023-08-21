@@ -97,21 +97,18 @@ export function ItemsWithoutFunction() {
     <Disclosure defaultOpen>
       {({ open }) => (
         <>
-          <Disclosure.Button
-            className="flex w-full justify-between py-2 mt-5 text-left text-sm font-medium hover:bg-happy-secondary
-        hover:text-white focus:outline-none"
-          >
+          <Disclosure.Button className="flex w-full justify-between py-2 mt-5 text-left font-medium  focus:outline-none">
             <span>
               {loading ? "🧠 L'IA recherche les rayons..." : '🤔 À déterminer'}
             </span>
             <ChevronUpIcon
               className={`${
                 open ? 'rotate-180 transform' : ''
-              } h-5 w-5 text-teal-950`}
+              } h-5 w-5 text-sl-text`}
             />
           </Disclosure.Button>
-          <Disclosure.Panel className="px-4 pt-4 pb-2 text-sm bg-happy m-0">
-            <div className="flex flex-col gap-1 pl-2 text-happy-buttonText-500">
+          <Disclosure.Panel className=" pt-1 pb-2 text-sm border-sl-tile border-t m-0">
+            <div className="flex flex-col gap-1 pl-2">
               <div className="flex flex-col gap-2">
                 {orphanItems.map((item) => (
                   <ListItemLine

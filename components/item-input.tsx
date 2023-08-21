@@ -45,13 +45,13 @@ export function ItemInput({ query, setQuery }: ItemInputProps) {
       .filter((item) => item.level < 5)
       .sort((a, b) => a.level - b.level)
 
-    return [
-      {
-        id: '__new__',
-        name: `"${query}"`,
-      },
-      ...filteredItems,
-    ].filter((item) => item.name !== 'Créer ""')
+    console.log(filteredItems, query)
+
+    const itemsArr = !!filteredItems.find((item) => item.name === query)
+      ? filteredItems
+      : [{ id: '__new__', name: `Créer "${query}"` }, ...filteredItems]
+
+    return itemsArr.filter((item) => item.name !== 'Créer ""')
   }, [items, query])
 
   if (!sections || !items) return <div>Chargement...</div>
@@ -93,7 +93,7 @@ export function ItemInput({ query, setQuery }: ItemInputProps) {
         leaveFrom="opacity-100"
         leaveTo="opacity-0"
       >
-        <div className="absolute bottom-full mt-2 left-0 w-full bg-happy-stroke text-happy-bg p-3 flex  justify-center gap-5">
+        <div className="absolute bottom-full mt-2 left-0 w-full bg-sl-tile text-happy-bg p-3 flex  justify-center gap-5">
           {list.slice(0, 4).map((item) => (
             <div
               key={item.id}
@@ -106,7 +106,7 @@ export function ItemInput({ query, setQuery }: ItemInputProps) {
         </div>
       </Transition>
       <input
-        className="rounded-sm w-full border-happy-stroke border pl-2 mt-2 outline-non bg-happy-bg disabled:opacity-50 disabled:cursor-not-allowed"
+        className="outline-none rounded-sm w-full border-sl-tile text-sl-text border pl-2 mt-2 outline-non bg-sl-bg disabled:opacity-50 disabled:cursor-not-allowed"
         value={loading ? `🔎 L'IA traque les fautes d'orthographe..` : query}
         onChange={(e) => setQuery(e.target.value)}
         placeholder={placeholder}

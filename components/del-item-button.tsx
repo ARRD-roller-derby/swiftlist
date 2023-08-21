@@ -22,7 +22,7 @@ export function DelItemButton({ id }: DelItemButtonProps) {
       <button
         type="button"
         onClick={openModal}
-        className="text-sm font-medium text-red-800 hover:bg-opacity-30 focus:outline-none"
+        className="text-sm font-medium text-sl-margin hover:bg-opacity-30 focus:outline-none"
       >
         Supprimer
       </button>
@@ -51,10 +51,10 @@ export function DelItemButton({ id }: DelItemButtonProps) {
                 leaveFrom="opacity-100 scale-100"
                 leaveTo="opacity-0 scale-95"
               >
-                <Dialog.Panel className="w-full max-w-md transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all">
+                <Dialog.Panel className="w-full max-w-md transform overflow-hidden rounded bg-sl-bg border border-sl-row p-6 text-left align-middle shadow-xl transition-all">
                   <Dialog.Title
                     as="h3"
-                    className="text-lg font-medium leading-6 text-gray-900"
+                    className="text-lg font-medium leading-6 text-sl-text"
                   >
                     Supprimer la ligne
                   </Dialog.Title>
@@ -68,14 +68,14 @@ export function DelItemButton({ id }: DelItemButtonProps) {
                   <div className="flex justify-between mt-3">
                     <button
                       type="button"
-                      className="inline-flex justify-center rounded-md border border-transparent bg-red-900 px-4 py-2 text-sm font-medium text-white hover:bg-red-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-red-500 focus-visible:ring-offset-2"
+                      className="bg-sl-bg text-sl-margin border border-sl-margin p-1 uppercase rounded-md"
                       onClick={handleDelList}
                     >
                       Supprimer
                     </button>
                     <button
                       type="button"
-                      className="inline-flex justify-center rounded-md border border-transparent bg-blue-100 px-4 py-2 text-sm font-medium text-blue-900 hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
+                      className="bg-sl-bg text-sl-text border border-sl-tile p-1 uppercase rounded-md"
                       onClick={closeModal}
                     >
                       Annuler
