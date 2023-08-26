@@ -2,7 +2,6 @@ import { convertTxtToBase64 } from '@/lib/convert-txt-to-base64'
 import { idb } from '@/lib/idb'
 import { useLiveQuery } from 'dexie-react-hooks'
 import { useMemo } from 'react'
-import va from '@vercel/analytics'
 import dynamic from 'next/dynamic'
 
 const QRCode = dynamic(() => import('react-qr-code'), { ssr: false })
@@ -22,7 +21,7 @@ export function ShareLink() {
   }, [items])
 
   return (
-    <div>
+    <div className="p-6 text-lg">
       <div className="text-center italic">
         🔗 Partagez ce lien pour garder votre liste de courses en sécurité et y
         accéder à tout moment. Votre liste est privée et ne sera pas enregistrée

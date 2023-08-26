@@ -2,7 +2,7 @@ import Image from 'next/image'
 
 export function Welcome() {
   return (
-    <div className="h-full w-full flex justify-center items-center">
+    <div className="h-full w-full flex justify-center items-center p-6">
       <div className="flex flex-col gap-1">
         <div className="flex justify-center  w-80px h-80px">
           <Image

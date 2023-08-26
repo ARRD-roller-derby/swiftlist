@@ -9,7 +9,7 @@ import {
 
 export function LegalNotice() {
   return (
-    <div>
+    <div className="p-6">
       <h2 className="text-2xl font-bold mb-4">MENTIONS LÉGALES</h2>
       <p>
         {
@@ -27,8 +27,8 @@ export function LegalNotice() {
         >
           {SITE_URL}
         </a>{' '}
-        (le « Site »), est édité par :
       </p>
+      <p> {"L'application"}, est édité par :</p>
       <p>
         {SITE_EDITOR}, de nationalité {SITE_EDITOR_NATIONALITY}.
       </p>
@@ -69,6 +69,50 @@ export function LegalNotice() {
         </a>
         .
       </p>
+      <div className="my-8">
+        <h2 className="text-2xl font-bold mb-4">
+          Charte de Protection des Données Personnelles
+        </h2>
+        <p className="mb-4">
+          La présente Charte de Protection des Données Personnelles (ci-après
+          dénommée {'"'}la Charte{'"'}) a pour objectif d{"'"}expliquer comment
+          nous respectons la confidentialité de vos données dans le cadre de l
+          {"'"}utilisation de notre application, Swift List.
+        </p>
+        <p className="mb-4">
+          Nous tenons à vous assurer que nous ne collectons ni n{"'"}utilisons
+          de données personnelles à des fins de suivi ou d{"'"}analyse. Nous
+          utilisons uniquement le service Vercel Analytics pour surveiller les
+          performances de notre application, sans recueillir de données
+          personnelles identifiables.
+        </p>
+        <p className="mb-4">
+          Vous pouvez être tranquille en sachant que votre vie privée est
+          importante pour nous. Nous respectons votre droit à la confidentialité
+          et prenons toutes les mesures nécessaires pour garantir que vos
+          données restent sécurisées et privées.
+        </p>
+        <p className="mb-4">
+          Si vous avez des questions concernant notre Charte de Protection des
+          Données Personnelles, veuillez nous contacter à l{"'"}adresse suivante
+          :{' '}
+          <a
+            href={CONTACT_PAGE_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-teal-500 underline"
+          >
+            {CONTACT_PAGE_URL}
+          </a>
+          .
+        </p>
+        <p>
+          Veuillez noter que cette Charte de Protection des Données Personnelles
+          peut être mise à jour de temps en temps. Nous vous encourageons donc à
+          la consulter régulièrement pour vous tenir informé(e) de tout
+          changement.
+        </p>
+      </div>
     </div>
   )
 }

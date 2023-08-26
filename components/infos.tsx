@@ -2,7 +2,7 @@ import va from '@vercel/analytics'
 export function Infos() {
   return (
     <div>
-      <p className="text-center text-gray-600 mb-4">
+      <p className="text-center text-gray-600 mb-4 p-6">
         {
           "Bienvenue dans l'appli de liste de courses la plus délicieusement pratique du monde ! 🛒✨"
         }
