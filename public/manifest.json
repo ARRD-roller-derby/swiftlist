@@ -1,22 +1,55 @@
 {
   "name": "Swift List",
   "short_name": "swiftlist",
+  "description": "🛒 Swift List est une application de gestion de listes de courses intuitive et pratique. Simplifiez votre expérience de magasinage en créant et en organisant facilement vos listes de courses. L'IA intégrée recherche les rayons correspondants pour chaque produit, ce qui vous permet de trouver rapidement les articles dont vous avez besoin. ✅ Cochez les articles achetés et suivez votre progression en un coup d'œil. Profitez d'une liste de courses efficace et d'une expérience de magasinage sans tracas avec Swift List ! 🚀",
   "icons": [
     {
-      "src": "/icons/android-chrome-192x192.png",
+      "src": "/icons/maskable_icon_x48.png",
+      "sizes": "48x48",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icons/maskable_icon_x72.png",
+      "sizes": "72x72",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icons/maskable_icon_x96.png",
+      "sizes": "96x96",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icons/maskable_icon_x128.png",
+      "sizes": "128x128",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icons/maskable_icon_x192.png",
       "sizes": "192x192",
       "type": "image/png",
       "purpose": "any maskable"
     },
     {
-      "src": "/icons/android-chrome-384x384.png",
+      "src": "/icons/maskable_icon_x384.png",
       "sizes": "384x384",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any maskable"
     },
     {
-      "src": "/icons/icon-512x512.png",
+      "src": "/icons/maskable_icon_x512.png",
       "sizes": "512x512",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icons/maskable_icon.png",
+      "sizes": "1024x1024",
+      "type": "image/png",
+      "purpose": "any maskable"
     }
   ],
   "theme_color": "#F2F2F2",

@@ -63,10 +63,6 @@ export default function Document() {
           href="/icons/favicon-32x32.png"
         />
         <link rel="manifest" href="/manifest.json" />
-        <meta
-          property="og:image"
-          content="https://yourdomain.com/icons/apple-touch-icon.png"
-        />
       </Head>
       <body>
         <Main />
