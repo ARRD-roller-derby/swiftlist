@@ -66,6 +66,17 @@
   "prefer_related_applications": false,
   "dir": "ltr",
   "lang": "fr",
+  "id": "/?home=1",
+  "display_override": [
+    "standalone",
+    "window-controls-overlay"
+  ],
+  "protocol_handlers": [
+    {
+      "protocol": "web",
+      "url": "/"
+    }
+  ],
   "categories": [
     "lifestyle",
     "shopping"
