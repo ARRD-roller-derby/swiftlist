@@ -62,5 +62,24 @@
   "background_color": "#F2F2F2",
   "start_url": "/",
   "display": "standalone",
-  "orientation": "portrait"
+  "orientation": "portrait",
+  "prefer_related_applications": false,
+  "dir": "ltr",
+  "lang": "fr",
+  "categories": [
+    "lifestyle",
+    "shopping"
+  ],
+  "screenshots": [
+    {
+      "src": "/screenshot.png",
+      "sizes": "1280x800",
+      "type": "image/png"
+    },
+    {
+      "src": "/screenshot_portrait.png",
+      "sizes": "750x1334",
+      "type": "image/png"
+    }
+  ]
 }
