@@ -98,13 +98,13 @@ export function ItemsWithoutFunction() {
       {({ open }) => (
         <>
           <Disclosure.Button className="flex w-full justify-between py-2 mt-5 text-left font-medium  focus:outline-none">
-            <span>
+            <span className="px-2">
               {loading ? "🧠 L'IA recherche les rayons..." : '🤔 À déterminer'}
             </span>
             <ChevronUpIcon
               className={`${
                 open ? 'rotate-180 transform' : ''
-              } h-5 w-5 text-sl-text`}
+              } h-5 w-5 text-sl-text mr-2`}
             />
           </Disclosure.Button>
           <Disclosure.Panel className=" pt-1 pb-2 text-sm border-sl-tile border-t m-0">

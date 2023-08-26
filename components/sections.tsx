@@ -43,7 +43,7 @@ export function Sections() {
                   } h-5 w-5 text-sl-text mr-2`}
                 />
               </Disclosure.Button>
-              <Disclosure.Panel className=" pt-1 pb-2 text-sm border-sl-tile border-t m-0">
+              <Disclosure.Panel className="pt-1 pb-2 text-sm border-sl-tile border-t m-0">
                 {availableSubSections
                   ?.filter((subSection) => subSection.parentId === section.id)
                   .map((subSection) => (
