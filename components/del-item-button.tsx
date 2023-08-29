@@ -19,12 +19,8 @@ export function DelItemButton({ id }: DelItemButtonProps) {
 
   return (
     <>
-      <button
-        type="button"
-        onClick={openModal}
-        className="text-sm font-medium text-sl-margin hover:bg-opacity-30 focus:outline-none"
-      >
-        Supprimer
+      <button type="button" onClick={openModal} className="bg-none">
+        🚮
       </button>
       <Transition appear show={isOpen} as={Fragment}>
         <Dialog as="div" className="relative z-10" onClose={closeModal}>

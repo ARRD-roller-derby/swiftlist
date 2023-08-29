@@ -21,6 +21,7 @@ export function ListItemLine({ item }: ListItemLineProps) {
       onClick={handleStrike}
     >
       <div className={`flex-1 pl-1 text-lg ${checked} first-letter:uppercase`}>
+        <div className="w-[15px] h-[15px] border border-sl-tile rounded-sm opacity-70" />
         {item.name}
         {' - '}
         <span className="text-sl-tile">{item.quantity} </span>
