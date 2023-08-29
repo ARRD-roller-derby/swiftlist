@@ -20,8 +20,10 @@ export function ListItemLine({ item }: ListItemLineProps) {
       className={`flex items-center gap-2 px-1 cursor-pointer border-b border-dotted border-b-sl-line last:border-transparent hover:border-b-teal  hover:border-dotted normal-case`}
       onClick={handleStrike}
     >
-      <div className={`flex-1 pl-1 text-lg ${checked} first-letter:uppercase`}>
-        <div className="w-[15px] h-[15px] border border-sl-tile rounded-sm opacity-70" />
+      <div
+        className={`flex-1 pl-1 flex text-lg ${checked} first-letter:uppercase`}
+      >
+        <div className="w-[15px] h-[15px] border border-sl-tile rounded-sm opacity-70 mr-2" />
         {item.name}
         {' - '}
         <span className="text-sl-tile">{item.quantity} </span>
