@@ -11,7 +11,7 @@
 - 📝 Créez et organisez vos listes de courses en quelques clics.
 - 🛍️ Trouvez rapidement les produits grâce à la recherche automatisée des rayons.
 - ✅ Cochez les articles achetés et suivez votre progression.
-- 🔗 Partagez vos listes avec d'autres personnes pour les courses en famille ou en colocation.
+- 🔗 Partagez vos listes avec d'autres personnes pour les courses en famille ou en colocation grâce au QR code.
 - 🔄 Les listes sont générées dynamiquement et ne sont pas enregistrées en base, garantissant ainsi la confidentialité de vos données.
 
 ## Installation
