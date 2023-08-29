@@ -19,7 +19,7 @@ export function DelItemButton({ id }: DelItemButtonProps) {
 
   return (
     <>
-      <button type="button" onClick={openModal} className="bg-none">
+      <button type="button" onClick={openModal} className="bg-none text-lg">
         🚮
       </button>
       <Transition appear show={isOpen} as={Fragment}>
