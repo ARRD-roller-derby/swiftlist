@@ -22,7 +22,6 @@ export default async function createItems(
       })
     })
   )
-  console.log(items)
 
   return response.json({ items })
 }
